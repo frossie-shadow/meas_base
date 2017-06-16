@@ -39,6 +39,7 @@ from .circularApertureFlux import *
 from .exceptions import *
 from .gaussianCentroid import *
 from .gaussianFlux import *
+from .localBackground import *
 from .naiveCentroid import *
 from .peakLikelihoodFlux import *
 from .pixelFlags import *

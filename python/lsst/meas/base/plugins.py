@@ -44,6 +44,7 @@ from .circularApertureFlux import CircularApertureFluxAlgorithm
 from .gaussianCentroid import GaussianCentroidAlgorithm, GaussianCentroidControl, GaussianCentroidTransform
 from .gaussianFlux import GaussianFluxAlgorithm, GaussianFluxControl, GaussianFluxTransform
 from .exceptions import MeasurementError
+from .localBackground import LocalBackgroundControl, LocalBackgroundAlgorithm, LocalBackgroundTransform
 from .naiveCentroid import NaiveCentroidAlgorithm, NaiveCentroidControl, NaiveCentroidTransform
 from .peakLikelihoodFlux import PeakLikelihoodFluxAlgorithm, PeakLikelihoodFluxControl, PeakLikelihoodFluxTransform
 from .pixelFlags import PixelFlagsAlgorithm, PixelFlagsControl
@@ -92,6 +93,9 @@ wrapSimpleAlgorithm(CircularApertureFluxAlgorithm, needsMetadata=True, Control=A
 wrapSimpleAlgorithm(BlendednessAlgorithm, Control=BlendednessControl,
                     TransformClass=BaseTransform, executionOrder=BasePlugin.SHAPE_ORDER)
 
+wrapSimpleAlgorithm(LocalBackgroundAlgorithm, Control=LocalBackgroundControl,
+                    TransformClass=LocalBackgroundTransform, executionOrder=BasePlugin.FLUX_ORDER)
+
 wrapTransform(PsfFluxTransform)
 wrapTransform(PeakLikelihoodFluxTransform)
 wrapTransform(GaussianFluxTransform)
@@ -101,6 +105,7 @@ wrapTransform(SdssCentroidTransform)
 wrapTransform(SdssShapeTransform)
 wrapTransform(ScaledApertureFluxTransform)
 wrapTransform(ApertureFluxTransform)
+wrapTransform(LocalBackgroundTransform)
 
 # --- Single-Frame Measurement Plugins ---
 
